@@ -1,0 +1,472 @@
+package first_part;
+
+public class IndividualClient {
+ String name;
+   String surname;
+  int age;
+  String address;
+   ClientType type;
+   DateManager date;
+    int numberOfRentals;
+
+    public IndividualClient(String name, String surname, int age, String address, ClientType type, DateManager date, int numberOfRentals) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.address = address;
+        this.type = type;
+        this.date = date;
+        this.numberOfRentals = numberOfRentals;
+    }
+
+}
+import java.util.ArrayList;
+
+public class Vehicules {
+	private ArrayList<Vehicule> vehicules;
+
+    private static Vehicules instance = null;
+
+    private Vehicules() {
+        vehicules = new ArrayList<>();
+    }
+
+    public static Vehicules getInstance() {
+        if (instance == null) {
+            instance = new Vehicules();
+        }
+        return instance;
+    }
+
+    public void ajouterVehicule(Vehicule vehicule) {
+        vehicules.add(vehicule);
+    }
+
+    public void afficherVehicules() {
+        for (var vehicule : vehicules) {
+           
+        }
+    }
+
+}
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+public class Gestion {
+    double kilometrageVente;
+    double kilometrageMaxVente;
+    HashSet<Vehicule> vehiculesDisponiblesLocation;
+    LinkedList<Vehicule> vehiculesDisponiblesVente;
+    HashMap<IndividualClient, Vehicule> vehiculesEnLocation;
+
+    public Gestion(double kilometrageVente, double kilometrageMaxVente) {
+        this.kilometrageVente = kilometrageVente;
+        this.kilometrageMaxVente = kilometrageMaxVente;
+        vehiculesDisponiblesLocation = new HashSet<>();
+        vehiculesDisponiblesVente = new LinkedList<>();
+        vehiculesEnLocation = new HashMap<>();
+    }
+}
+import java.util.Date;
+
+public class Vehicule {
+    private TypeVehicule typeVehicule;
+    private NombreDePortes nombreDePortes;
+    private Immatriculation immatriculation;
+    private Constructeur constructeur;
+    private String modele;
+    private double kilometrage;
+    private double prixAchat;
+    private Date dateDebut;
+    private double kilometrageDebut;
+    private Date dateFin;
+    private double kilometrageFin;
+
+    public Vehicule(TypeVehicule typeVehicule, NombreDePortes nombreDePortes, Immatriculation immatriculation,
+                    Constructeur constructeur, String modele, double kilometrage, double prixAchat) {
+        this.typeVehicule = typeVehicule;
+        this.nombreDePortes = nombreDePortes;
+        this.immatriculation = immatriculation;
+        this.constructeur = constructeur;
+        this.modele = modele;
+        this.kilometrage = kilometrage;
+        this.prixAchat = prixAchat;
+    }
+
+    public double getPrixAchat() {
+        return prixAchat;
+    }
+
+    public TypeVehicule getTypeVehicule() {
+        return typeVehicule;
+    }
+
+    public NombreDePortes getNombreDePortes() {
+        return nombreDePortes;
+    }
+
+    public Immatriculation getImmatriculation() {
+        return immatriculation;
+    }
+
+    public Constructeur getConstructeur() {
+        return constructeur;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public double getKilometrage() {
+        return kilometrage;
+    }
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public double getKilometrageDebut() {
+        return kilometrageDebut;
+    }
+
+    public void setKilometrageDebut(double kilometrageDebut) {
+        this.kilometrageDebut = kilometrageDebut;
+    }
+
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public double getKilometrageFin() {
+        return kilometrageFin;
+    }
+
+    public void setKilometrageFin(double kilometrageFin) {
+        this.kilometrageFin = kilometrageFin;
+    }
+}
+import java.text.SimpleDateFormat;
+
+public class DateManager {
+	private String date;
+    private final String format = "dd/MM/yyyy";
+    private SimpleDateFormat simpleDateFormat;
+
+    public DateManager(String date) {
+        this.date = date;
+        simpleDateFormat = new SimpleDateFormat(format);
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public SimpleDateFormat getSimpleDateFormat() {
+        return simpleDateFormat;
+    }
+
+}public class Berline {
+	final TypeVehicule type;
+    final NombreDePortes nombreDePortes;
+     final Immatriculation immatriculation;
+     final Constructeur constructeur;
+     final String modele;
+     double kilometrage;
+     double prixAchat;
+
+    public Berline(TypeVehicule type, NombreDePortes nombreDePortes, Immatriculation immatriculation, Constructeur constructeur, String modele, double kilometrage, double prixAchat) {
+        this.type = type;
+        this.nombreDePortes = nombreDePortes;
+        this.immatriculation = immatriculation;
+        this.constructeur = constructeur;
+        this.modele = modele;
+        this.kilometrage = kilometrage;
+        this.prixAchat = prixAchat;
+    }
+    
+}
+public class Break {
+	 final TypeVehicule type;
+     final NombreDePortes nombreDePortes;
+     final Immatriculation immatriculation;
+     final Constructeur constructeur;
+     final String modele;
+     double kilometrage;
+     double prixAchat;
+
+    public Break(TypeVehicule type, NombreDePortes nombreDePortes, Immatriculation immatriculation, Constructeur constructeur, String modele, double kilometrage, double prixAchat) {
+        this.type = type;
+        this.nombreDePortes = nombreDePortes;
+        this.immatriculation = immatriculation;
+        this.constructeur = constructeur;
+        this.modele = modele;
+        this.kilometrage = kilometrage;
+        this.prixAchat = prixAchat;
+    }
+}
+public class BusinessClient {
+	    String name;
+	     ClientType type;
+	     DateManager dateOfRental;
+	     double discountRate;
+
+	    public BusinessClient(String name, ClientType type, DateManager dateOfRental, double discountRate) {
+	        this.name = name;
+	        this.type = type;
+	        this.dateOfRental = dateOfRental;
+	        this.discountRate = discountRate;
+	    }
+
+}
+import java.util.ArrayList;
+
+public class Clients {
+	private static Clients instance = null;
+    private ArrayList<Object> clients;
+   
+
+
+    private Clients() {
+        clients = new ArrayList<>();
+    }
+
+    public static Clients getInstance() {
+        if (instance == null) {
+            instance = new Clients();
+        }
+        return instance;
+    }
+
+    public void addClient(Object client) {
+        clients.add(client);
+    }
+
+    public void displayClients() {
+        for (Object client : clients) {
+            if (client instanceof IndividualClient) {
+                IndividualClient individual = (IndividualClient) client;
+                System.out.println("Name: " + individual.name + ", Surname: " + individual.surname + ", Type: " + individual.type +
+                        ", Number of Rentals: " + individual.numberOfRentals);
+            } else if (client instanceof BusinessClient) {
+                BusinessClient business = (BusinessClient) client;
+                System.out.println("Name: " + business.name + ", Type: " + business.type + ", Discount Rate: " + business.discountRate);
+            }
+        }
+    }
+
+}
+public enum ClientType {
+	   PARTICULAR,
+	    PROFESSIONAL
+
+}
+public enum Constructeur {
+	 PEUGEOT("Peugeot"),
+	    RENAULT("Renault"),
+	    CITROEN("Citroën");
+//add what ever you want here i didn't understand what your teacher wants exactly i am not that good in french 
+	    private final String marque;
+
+	    Constructeur(String marque) {
+	        this.marque = marque;
+	    }
+
+	    public String getMarque() {
+	        return marque;
+	    }
+}
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+public class Gestion {
+    double kilometrageVente;
+    double kilometrageMaxVente;
+    HashSet<Vehicule> vehiculesDisponiblesLocation;
+    LinkedList<Vehicule> vehiculesDisponiblesVente;
+    HashMap<IndividualClient, Vehicule> vehiculesEnLocation;
+
+    public Gestion(double kilometrageVente, double kilometrageMaxVente) {
+        this.kilometrageVente = kilometrageVente;
+        this.kilometrageMaxVente = kilometrageMaxVente;
+        vehiculesDisponiblesLocation = new HashSet<>();
+        vehiculesDisponiblesVente = new LinkedList<>();
+        vehiculesEnLocation = new HashMap<>();
+    }
+}
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+public class Gestion {
+    double kilometrageVente;
+    double kilometrageMaxVente;
+    HashSet<Vehicule> vehiculesDisponiblesLocation;
+    LinkedList<Vehicule> vehiculesDisponiblesVente;
+    HashMap<IndividualClient, Vehicule> vehiculesEnLocation;
+
+    public Gestion(double kilometrageVente, double kilometrageMaxVente) {
+        this.kilometrageVente = kilometrageVente;
+        this.kilometrageMaxVente = kilometrageMaxVente;
+        vehiculesDisponiblesLocation = new HashSet<>();
+        vehiculesDisponiblesVente = new LinkedList<>();
+        vehiculesEnLocation = new HashMap<>();
+    }
+}
+import java.util.Objects;
+
+public class Immatriculation {
+	  final String identification;
+
+	    public Immatriculation(String identification) {
+	        this.identification = identification;
+	    }
+
+	    public String getIdentification() {
+	        return identification;
+	    }
+
+	    @Override
+	    public boolean equals(Object obj) {
+	        if (this == obj) return true;
+	        if (obj == null || getClass() != obj.getClass()) return false;
+	        Immatriculation that = (Immatriculation) obj;
+	        return Objects.equals(identification, that.identification);
+	    }
+
+	    @Override
+	    public int hashCode() {
+	        return Objects.hash(identification);
+	    }
+	}
+public class Break {
+	 final TypeVehicule type;
+     final NombreDePortes nombreDePortes;
+     final Immatriculation immatriculation;
+     final Constructeur constructeur;
+     final String modele;
+     double kilometrage;
+     double prixAchat;
+
+    public Break(TypeVehicule type, NombreDePortes nombreDePortes, Immatriculation immatriculation, Constructeur constructeur, String modele, double kilometrage, double prixAchat) {
+        this.type = type;
+        this.nombreDePortes = nombreDePortes;
+        this.immatriculation = immatriculation;
+        this.constructeur = constructeur;
+        this.modele = modele;
+        this.kilometrage = kilometrage;
+        this.prixAchat = prixAchat;
+    }
+}
+public enum NombreDePortes {
+	DEUX(2, "compacte"),
+    TROIS(3, "polyvalente et compacte"),
+    QUATRE(4, "standard"),
+    CINQ(5, "spacieuse");
+	
+
+    private final int nombre;
+    private final String description;
+
+    NombreDePortes(int nombre, String description) {
+        this.nombre = nombre;
+        this.description = description;
+    }
+
+    public int getNombre() {
+        return nombre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}
+public enum TypeVehicule {
+	 BERLINE("Berline", 50.0, "Famille"),
+	    BREAK("Break", 60.0, "Polyvalent"),
+	    UTILITAIRE("Utilitaire", 70.0, "Travail");
+
+	    private final String type;
+	    private final double prixJour;
+	    private final String description;
+
+	    TypeVehicule(String type, double prixJour, String description) {
+	        this.type = type;
+	        this.prixJour = prixJour;
+	        this.description = description;
+	    }
+
+	    public String getType() {
+	        return type;
+	    }
+
+	    public double getPrixJour() {
+	        return prixJour;
+	    }
+
+	    public String getDescription() {
+	        return description;
+	    }
+}
+public class Utilitaire {
+	 final TypeVehicule type;
+     final NombreDePortes nombreDePortes;
+     final Immatriculation immatriculation;
+     final Constructeur constructeur;
+    final String modele;
+     double kilometrage;
+     double prixAchat;
+
+    public Utilitaire(TypeVehicule type, NombreDePortes nombreDePortes, Immatriculation immatriculation, Constructeur constructeur, String modele, double kilometrage, double prixAchat) {
+        this.type = type;
+        this.nombreDePortes = nombreDePortes;
+        this.immatriculation = immatriculation;
+        this.constructeur = constructeur;
+        this.modele = modele;
+        this.kilometrage = kilometrage;
+        this.prixAchat = prixAchat;
+    }
+
+}
+import java.util.ArrayList;
+
+public class Vehicules {
+	private ArrayList<Vehicule> vehicules;
+
+    private static Vehicules instance = null;
+
+    private Vehicules() {
+        vehicules = new ArrayList<>();
+    }
+
+    public static Vehicules getInstance() {
+        if (instance == null) {
+            instance = new Vehicules();
+        }
+        return instance;
+    }
+
+    public void ajouterVehicule(Vehicule vehicule) {
+        vehicules.add(vehicule);
+    }
+
+    public void afficherVehicules() {
+        for (var vehicule : vehicules) {
+           
+        }
+    }
+
+}
